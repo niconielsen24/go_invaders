@@ -1,0 +1,37 @@
+# Build output
+bin/
+dist/
+*.exe
+*.out
+*.test
+
+# Go
+vendor/
+*.sum.bak
+
+# Env & secrets
+.env
+.env.*
+*.pem
+*.key
+*.cert
+
+# Editor & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & temp
+*.log
+tmp/
+temp/
+
+# Claude
+.claude/
