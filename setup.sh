@@ -37,6 +37,7 @@ LIBS=(
     libxcursor-dev
     libxi-dev
     libxxf86vm-dev
+    libraylib-dev
 )
 
 for lib in "${LIBS[@]}"; do

@@ -17,6 +17,11 @@ type sprites = map[string]rl.Texture2D
 type enemies = map[int]mobs.DrawableEnemy
 type bullets = []bullet.Bullet
 
+const (
+	upperBound = 20
+	leftBound  = 20
+)
+
 type Game struct {
 	windowWidth  int32
 	windowHeight int32
@@ -41,7 +46,10 @@ func New(windowWidth, windowHeight int32) *Game {
 		enemies:      nil,
 		deadEnemies:  nil,
 		inputParser:  nil,
-		bounds:       internal.NewBoundingBox(0, 0, windowWidth-20, windowHeight-20),
+		bounds: internal.NewBoundingBox(
+			upperBound, leftBound,
+			windowWidth-40, windowHeight-40,
+		),
 	}
 }
 
@@ -85,10 +93,10 @@ func (g *Game) Init() {
 	rl.InitWindow(g.windowWidth, g.windowHeight, "Go Invaders")
 	rl.SetTargetFPS(60)
 	g.sprites = sprites{
-		"red":    rl.LoadTexture("assets/red.png"),
-		"green":  rl.LoadTexture("assets/green.png"),
-		"yellow": rl.LoadTexture("assets/yellow.png"),
-		"extra":  rl.LoadTexture("assets/extra.png"),
+		"red":    rl.LoadTexture("assets/img/red.png"),
+		"green":  rl.LoadTexture("assets/img/green.png"),
+		"yellow": rl.LoadTexture("assets/img/yellow.png"),
+		"extra":  rl.LoadTexture("assets/img/extra.png"),
 	}
 	g.initEnemies()
 	g.deadEnemies = make(enemies)
